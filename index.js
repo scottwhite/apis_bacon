@@ -10,8 +10,6 @@ var app = express();
 
 app.set('port', process.env.PORT || 3000);
 app.use(morgan('combined'));
-// app.use(express.bodyParser());
-// app.use(express.methodOverride());
 
 //routes
 app.get('/locations/:search',location.search);
