@@ -9,6 +9,7 @@ let placeDetailsUrl = 'https://maps.googleapis.com/maps/api/place/details/json';
 
 exports.search = function(req, res){
   res.set('Content-type', 'application/json');
+  res.set('Access-Control-Allow-Origin', '*');
   console.log(req.params);
   let data = querystring.stringify({
     key: configs.GOOGLE_API_KEY,
@@ -30,9 +31,10 @@ exports.search = function(req, res){
 
 exports.details = function(req, res){
   res.set('Content-type', 'application/json');
+  res.set('Access-Control-Allow-Origin', '*');
   let data = querystring.stringify({
     key: configs.GOOGLE_API_KEY,
-    palceid: req.params.placeid
+    placeid: req.params.placeid
   });
   let url = placeDetailsUrl + '?' + data;
   let body = '';

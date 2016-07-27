@@ -10,6 +10,7 @@ exports.search = function(req, res){
   let url = weatherUrl + latlng;
   let body='';
   res.set('Content-type', 'application/json');
+  res.set('Access-Control-Allow-Origin', '*');
   https.get(url, (resx) =>{
     resx.on('data',(d)=>{body +=d});
     resx.on('end', ()=>{
